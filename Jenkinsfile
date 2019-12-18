@@ -9,9 +9,14 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'npm install'
+        sh '''
+
+npm install'''
       }
     }
 
+  }
+  environment {
+    deck = 'dockerd'
   }
 }
