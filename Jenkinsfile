@@ -8,10 +8,21 @@ pipeline {
   }
   stages {
     stage('Build') {
-      steps {
-        sh '''
+      parallel {
+        stage('Build') {
+          steps {
+            sh '''
 
 npm install'''
+          }
+        }
+
+        stage('Int-Build') {
+          steps {
+            sh 'echo "Intermediate Build"'
+          }
+        }
+
       }
     }
 
